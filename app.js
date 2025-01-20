@@ -12,8 +12,8 @@ config()
 connectDb()
 app.use(express.json());
 app.use(cookieParser())
-app.use(express.json({
-    urlencoded:true
+app.use(express.urlencoded({
+    extended:true
 }))
 app.use("/api/v1",UserRouter)
 

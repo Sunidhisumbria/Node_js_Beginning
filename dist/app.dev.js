@@ -20,8 +20,8 @@ var app = (0, _express["default"])();
 (0, _db.connectDb)();
 app.use(_express["default"].json());
 app.use((0, _cookieParser["default"])());
-app.use(_express["default"].json({
-  urlencoded: true
+app.use(_express["default"].urlencoded({
+  extended: true
 }));
 app.use("/api/v1", _user["default"]); // app.post("/abc",(req,res)=>{
 //     res.send(req.body)

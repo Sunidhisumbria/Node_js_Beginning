@@ -10,6 +10,21 @@ const userSchema = new Schema({
 });
 
 
-export const  User = model("users",userSchema) 
+const fileSchema = new Schema(
+    {
+      originalName: { type: String, required: true }, 
+      fileName: { type: String, required: true }, 
+      filePath: { type: String, required: true }, 
+      size: { type: Number, required: true }, 
+      mimeType: { type: String, required: true }, 
+      uploadedBy: { type: Schema.Types.ObjectId, ref: "users" }, 
+      uploadDate: { type: Date, default: Date.now }, 
+    },
+    {
+      timestamps: true, 
+    })
+
+export const  User = model("users",userSchema) ;
+export const File = model("files", fileSchema);
 
 // const 
